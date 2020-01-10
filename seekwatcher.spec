@@ -1,7 +1,7 @@
 Summary: Utility for visualizing block layer IO patterns and performance
 Name: seekwatcher
 Version: 0.12
-Release: 4.1%{?dist}
+Release: 5%{?dist}
 License: GPLv2
 BuildArch: noarch
 Group: Development/System
@@ -13,6 +13,7 @@ BuildRequires: python
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 Patch0: seekwatcher-0.12-new-matplotlib.patch
+Patch1: seekwatcher-0.12-no-numerix.patch
 
 %description
 Seekwatcher generates graphs from blktrace runs to help visualize IO patterns
@@ -25,6 +26,7 @@ information about IO patterns.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %install
 rm -rf %{buildroot}
@@ -43,6 +45,9 @@ rm -rf %{buildroot}
 /usr/bin/*
 
 %changelog
+* Fri Jun 03 2011 Eric Sandeen <sandeen@redhat.com> - 0.12-5
+- Fix matplotlib warning about numerix (#681703)
+
 * Mon Nov 30 2009 Dennis Gregorovic <dgregor@redhat.com> - 0.12-4.1
 - Rebuilt for RHEL 6
 

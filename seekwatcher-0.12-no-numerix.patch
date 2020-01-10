@@ -1,0 +1,12 @@
+Index: seekwatcher-0.12/seekwatcher
+===================================================================
+--- seekwatcher-0.12.orig/seekwatcher
++++ seekwatcher-0.12/seekwatcher
+@@ -752,7 +752,6 @@ if not blktrace_only:
+ (options,args) = parser.parse_args()
+ 
+ if not blktrace_only:
+-    rcParams['numerix'] = 'numpy'
+     if options.interactive:
+         rcParams['backend'] = options.backend
+         rcParams['interactive'] = 'True'
